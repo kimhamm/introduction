@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.Footer {
+  border-top: 1px solid #aaa;
+  height: $footer-height-max;
+  animation: roll-up-footer 0.5s ease forwards;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  ul {
+    margin-top: 9vh;
+    display: flex;
+    text-align: center;
+    color: #868e96;
+
+    li {
+      flex-grow: 1;
+    }
+  }
+
+  &.hidden {
+    height: $footer-height-min;
+    color: transparent;
+    overflow: hidden;
+    animation: roll-down-footer 0.5s ease forwards;
+  }
+}

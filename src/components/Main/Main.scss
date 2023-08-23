@@ -1,0 +1,244 @@
+@import "../../App.scss";
+
+.Main {
+  overflow: scroll;
+  animation: roll-up-main 0.5s ease forwards;
+
+  .contentArea {
+  }
+
+  &.hidden {
+    animation: roll-down-main 0.5s ease forwards;
+  }
+}
+
+.Cover {
+  position: relative;
+  height: calc(100vh - $header-height-max - $footer-height-max);
+  overflow: hidden;
+  .coverContainer {
+    height: calc(100vh - $header-height-max - $footer-height-max);
+
+    overflow: hidden;
+    #coverImg {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: hover-out-img 0.5s ease forwards;
+    }
+
+    .coverLetter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 60px;
+      animation: hover-on-coverletter 1s ease forwards;
+    }
+
+    &:hover {
+      #coverImg {
+        animation: hover-on-img 0.5s ease forwards;
+      }
+
+      .coverLetter {
+        animation: hover-out-coverletter 1s ease forwards;
+      }
+    }
+  }
+}
+
+.Profile {
+  @include content-padding;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  #summary {
+    overflow: hidden;
+    h3 {
+      margin: 10px 0;
+    }
+
+    .profileImgCont {
+      width: 200px;
+      height: 200px;
+      margin-right: 20px;
+      border-radius: 30px;
+      float: left;
+      overflow: hidden;
+    }
+    img {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+
+    p {
+      line-height: 30px;
+    }
+  }
+
+  #details {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    grid-gap: 2%;
+
+    ul {
+      border-top: 1px solid $border-color;
+      h4 {
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+.Blog {
+  @include content-padding;
+
+  margin: 0 auto;
+  height: 100%;
+  .postList {
+    margin-top: 1%;
+  }
+
+  .categories {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+
+    li {
+      flex-grow: 1;
+
+      a {
+        display: block;
+        padding: 5px 30px 5px 15px;
+        border-radius: 0px 10px 0 0;
+        box-shadow: 2px 0px 1px 0px gray;
+        border-bottom: 1px solid $border-color;
+      }
+
+      &.active {
+        a {
+          font-weight: 700;
+          background-color: #bbb;
+        }
+      }
+    }
+  }
+}
+
+.Posts {
+  height: 100%;
+
+  ul {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* height: 100%; */
+    @include content-list-style;
+  }
+
+  .postContainer {
+    @include container;
+  }
+}
+
+.Post {
+  @include content-area;
+}
+
+.Portfolio {
+  @include content-padding;
+
+  .portfolios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vh;
+
+    .portfolio {
+      height: 31vh;
+
+      a {
+        border-radius: 10px;
+      }
+
+      @include content-list-style;
+    }
+  }
+  .presentationContainer {
+    @include container;
+  }
+}
+
+.Presentation {
+  @include content-area;
+}
+
+.Network {
+  @include content-padding;
+
+  .networks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 70px;
+
+    .network {
+      a {
+        border: 1px solid #aaa;
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow: 0 0 0 0;
+      }
+      @include content-list-style;
+
+      .img {
+        height: 150px;
+      }
+    }
+  }
+}
+
+.Vision {
+  @include content-padding;
+
+  .visions {
+    .vision {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+
+      .projects {
+        justify-content: space-evenly;
+        display: flex;
+        gap: 20px;
+
+        .project {
+          border: 1px solid #aaa;
+          padding: 10px;
+          // width: 200px;
+          flex-grow: 1;
+          margin-top: 15px;
+          border-radius: 10px;
+
+          .progress {
+            border: 1px solid #ccc;
+            font-size: 10px;
+            color: white;
+            margin-top: 10px;
+            border-radius: 10px;
+
+            .progressBar {
+              background-color: rebeccapurple;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
